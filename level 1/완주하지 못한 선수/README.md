@@ -28,24 +28,24 @@ CODE
 			else
 				strMap[elem]++;
 				//동명이인의 경우 count++하기
-    }
+		}
 
-    for(auto elem : participant)
-    {
-        if(strMap.end() == strMap.find(elem))
-        {
-            answer = elem;
-            break;
-        }
-        else
-        {
-            strMap[elem]--;
-            if(strMap[elem] < 0)
-            {
-                answer = elem;
-                break;
-            }
-        }
-    }
-    return answer;
-}
+		for(auto elem : participant)
+		{
+			if(strMap.end() == strMap.find(elem))
+			{
+				answer = elem;
+				break;
+			}
+			else
+			{
+				strMap[elem]--;
+				if(strMap[elem] < 0)
+				{
+					answer = elem;
+					break;
+				}
+			}
+		}
+		return answer;
+	}
