@@ -1,18 +1,20 @@
 완주하지 못한 선수
 
 풀이
+----
 
-######string : key값, 완주자 이름
+string : key값, 완주자 이름
 
 int : count 값. 동명이인인 경우를 위해서 존재
 
 if(strMap.end() == strMap.find(elem))
 
-	//현재맵에 elem값이 없을 때,
+//현재맵에 elem값이 없을 때,
 	
 completion에서 map을 채워넣고 count를 1씩 추가한다면, paricipant에서 key값의 사람이 존재하는지 확인하고, 1씩 제거한다.
 
 CODE
+----
 
 	#include <vector>
 	#include <unordered_map>
