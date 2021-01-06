@@ -2,7 +2,7 @@
 
 풀이
 
-string : key값, 완주자 이름
+######string : key값, 완주자 이름
 
 int : count 값. 동명이인인 경우를 위해서 존재
 
