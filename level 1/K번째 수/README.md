@@ -45,5 +45,32 @@ vector<int> solution(vector<int> array, vector<vector<int>> commands) {
     }
     return answer;
   }
-  </code>
-  </pre>
+</code>
+</pre>
+  
+하지만 해당 방식의 경우는 시간 복잡도가 O(n^2)에 해당한다.
+  
+이를 해결하기 위해 첫번째 for문을 돌릴 때, 한 번에 해결하는 방식을 고민해보았다.
+
+기존의 array가 손상되지 않게 temp 배열을 선언하고, 그 temp 내에서 commands에서 주어진 범위 부분에 대하여 sort를 진행한 후, 그 안에서 바로 정답을 받아 answer에 넣는 방식으로 
+진행할 경우 이중 for문을 사용하지 않아도 된다.
+  
+2.
+<pre>
+<code>
+vector<int> solution(vector<int> array, vector<vector<int>> commands) {
+    vector<int> answer;
+    vector<int> temp;
+    for(int i = 0; i < commands.size(); i++) {
+        temp = array;
+        sort(temp.begin() + commands[i][0] - 1, temp.begin() + commands[i][1]);
+        answer.push_back(temp[commands[i][0] + commands[i][2]-2]);
+    }
+    return answer;
+}
+</code>
+</pre>
+  
+  
+  
+  
