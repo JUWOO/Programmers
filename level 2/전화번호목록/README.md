@@ -25,14 +25,14 @@ SOLUTION
 sort 후에 매번 반복을 진행할 때마다 현재 phone_book의 string이(phone_book[i]) 그 다음 string(phoone_book[i+1])의 접두사 부분에 존재하는지를 확인했다. 이때 사용한 함수는 substr이다.
 그래서 존재할 경우 false를 return하였다.
 
-01
+01.
 <pre>
 <code>
 using namespace std;
 bool solution(vector<string> phone_book) {
     bool answer = true;
     sort(phone_book.begin(), phone_book.end());
-    for(int i=0 ; i<phone_book.size()-1 ; i++)
+    for(int i=0 ; i < phone_book.size()-1 ; i++)
     {
         if(phone_book[i]==phone_book[i+1].substr(0,phone_book[i].size()))
             return false;
