@@ -21,11 +21,10 @@ SOLUTION
 ---------
 문제의 흐름을 따라 진행하였다.
 
-for문을 통해 commands의 값을 차례로 받아와 start, end, num에 받았으며, array의 해당 숫자의 값을 새로운 배열인 array2에 받아와 진행하였다.
+`for`을 통해 `commands`의 값을 차례로 받아와 `start`, `end`, `num`에 받았으며, `array`의 해당 숫자의 값을 새로운 배열인 `array2`에 받아와 진행하였다.
 
 1.
-<pre>
-<code>
+```{.cpp}
 vector<int> solution(vector<int> array, vector<vector<int>> commands) {
     vector<int> answer;
     vector<int> array2;
@@ -45,8 +44,7 @@ vector<int> solution(vector<int> array, vector<vector<int>> commands) {
     }
     return answer;
   }
-</code>
-</pre>
+```
   
 하지만 해당 방식의 경우는 시간 복잡도가 O(n^2)에 해당한다.
   
@@ -56,8 +54,7 @@ vector<int> solution(vector<int> array, vector<vector<int>> commands) {
 진행할 경우 이중 for문을 사용하지 않아도 된다.
   
 2.
-<pre>
-<code>
+```{.cpp}
 vector<int> solution(vector<int> array, vector<vector<int>> commands) {
     vector<int> answer;
     vector<int> temp;
@@ -68,9 +65,7 @@ vector<int> solution(vector<int> array, vector<vector<int>> commands) {
     }
     return answer;
 }
-</code>
-</pre>
-  
+```
   
   
   
