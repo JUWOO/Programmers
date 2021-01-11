@@ -26,8 +26,7 @@ sort 후에 매번 반복을 진행할 때마다 현재 phone_book의 string이(
 그래서 존재할 경우 false를 return하였다.
 
 01.
-<pre>
-<code>
+```{.cpp}
 using namespace std;
 bool solution(vector<string> phone_book) {
     bool answer = true;
@@ -39,19 +38,17 @@ bool solution(vector<string> phone_book) {
     }
     return answer;
 }
-</code>
-</pre>
+```
 
 그러나 만약 해시를 사용할 경우에 다음과 같이 생각할 수 있다.
 
-hash_map을 만들어 그 안에 phone_book의 string을 채운다.
+`hash_map`을 만들어 그 안에 `phone_book`의 string을 채운다.
 
-phone_book에 저장된 번호를 앞에서부터 하나하나씩 비교한다. 이를 위해 phone_number 변수에 전화번호의 앞에서부터 차레로 담는다. 
-하나를 담을 때마다 if문을 통해서 다음 phone_number가 hash_map에 있는지 확인하고, 또한 해당 번호가 자기 자신이 아닌 것을 확인한다.(phone_number != phone_book[i])
+`phone_book`에 저장된 번호를 앞에서부터 하나하나씩 비교한다. 이를 위해 `phone_number` 변수에 전화번호의 앞에서부터 차레로 담는다. 
+하나를 담을 때마다 `if`을 통해서 다음 `phone_number`가 `hash_map`에 있는지 확인하고, 또한 해당 번호가 자기 자신이 아닌 것을 확인한다.(`phone_number != phone_book[i]`)
 
 02.
-<pre>
-<code>
+```{.cpp}
 using namespace std;
 bool solution(vector<string> phone_book) {
     bool answer = true;
@@ -69,7 +66,6 @@ bool solution(vector<string> phone_book) {
     }
     return answer;
 }
-</code>
-</pre>
+```
 
 
