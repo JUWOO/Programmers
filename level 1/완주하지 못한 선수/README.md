@@ -69,3 +69,29 @@ string solution(vector<string> participant, vector<string> completion) {
     return answer;
 }
 ```
+
+다음 문제를 sort로도 풀 수 있다.
+
+```{.python}
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+string solution(vector<string> participant, vector<string> completion) {
+    string answer = "";
+    //participant와 competion을 각각 sort한 후에 차례로 비교한다.
+    sort(participant.begin(), participant.end());
+    sort(completion.begin(), completion.end());
+    for(int i=0; i<completion.size(); i++)
+    {
+        if(participant[i]!=completion[i])
+            return participant[i];
+    }
+    return participant[participant.size()-1];
+}
+```
+이 경우에는 코드가 간결하며 이해하기가 쉽지만, 해시를 사용할 때보다 time complexity가 커진다.
+
+sort()함수의 시간 복잡도는 nlon(n)이기 때문이다.
