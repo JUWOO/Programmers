@@ -78,7 +78,6 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
         }
         else
             q.push(0);
-
     } 
     return answer;
 }
