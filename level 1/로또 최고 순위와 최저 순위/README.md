@@ -131,3 +131,4 @@ vector<int> solution(vector<int> lottos, vector<int> win_nums) {
         answer.push_back(6);
     return answer;
 }
+```
