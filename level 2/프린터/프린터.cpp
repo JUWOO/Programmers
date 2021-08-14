@@ -3,6 +3,50 @@
 #include <queue>
 #include <algorithm>
 
+#include <string>
+#include <vector>
+#include <queue>
+#include <algorithm>
+
+using namespace std;
+
+int solution(vector<int> priorities, int location) {
+    int answer = 0;
+    int num = priorities.size();
+    queue<int> check;
+    vector<int> check2;
+    int juwoo[num];
+    int temp;
+    int count = 0;
+    for(int i=0; i<num; i++)
+    {
+        check.push(priorities[i]);
+        check2.push_back(priorities[i]);
+    }
+    sort(priorities.begin(), priorities.end());
+    for(int j=0; j<num; j++)
+    {
+        count = 0;
+        for(int i=0; i<num; i++)
+            if(priorities[j]==check2[i])
+            {
+                check2[i] = 0;
+                count = i;
+                break;
+            }
+        while(priorities[j]!=check.front())
+        {
+            temp = check.front();
+            check.pop();
+            check.push(temp);
+        }
+        juwoo[count] = j+1;
+        check.pop();
+    }
+    answer = juwoo[location];
+    return answer;
+}
+
 using namespace std;
 
 int solution(vector<int> priorities, int location) {
