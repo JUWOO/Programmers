@@ -4,9 +4,6 @@
 #include <algorithm>
 
 using namespace std;
-//record를 vector array v로 만들어서 그 안의 name을 바꾸는 방법을 생각했음
-//그런데, 그것보다는 차라리 관리자 명단을 따로 만들어서 그 안에서 변형을 하고, 그거에 맞춰서 출력하는 게 더 쉽지 않은가.....
-
 
 vector<string> solution(vector<string> record) {
     vector<string> answer;
@@ -14,8 +11,6 @@ vector<string> solution(vector<string> record) {
     vector<vector<string>> v;
     vector<vector<string>> data;
     
-    //이 부분은 그럼 그대로 유지하고, 대신에 이름 부분은 받아오지 않아도 되겠다.
-    //이름 부분은 다른 배열을 선언하고 그 안에 저장하기(id-name)+update하기.
     for(int i=0 ; i<num ; i++)
     {
         string line = record[i];
@@ -81,13 +76,36 @@ vector<string> solution(vector<string> record) {
     
     for(int i=0 ; i<num ; i++)
     {
-        
-    }
-    
-    for(int k=0 ; k<data.size() ; k++)
-    {
-        string juwoo = data[k][1];
-        answer.push_back(juwoo);
+        string line = "";
+        if(v[i][0]=="Enter")
+        {
+            string id = v[i][1];
+            for(int j=0 ; j<data.size() ; j++)
+            {
+                if(data[j][0]==id)
+                {
+                    line += data[j][1];
+                    break;
+                }
+            }
+            line += "님이 들어왔습니다.";
+        }
+        else if(v[i][0]=="Leave")
+        {
+            string id = v[i][1];
+            for(int j=0 ; j<data.size() ; j++)
+            {
+                if(data[j][0]==id)
+                {
+                    line += data[j][1];
+                    break;
+                }
+            }
+            line += "님이 나갔습니다.";
+        }
+        else
+            continue;
+        answer.push_back(line);
     }
     return answer;
 }
