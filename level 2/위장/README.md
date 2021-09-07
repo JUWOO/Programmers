@@ -79,13 +79,45 @@ SOLUTION
 2. 알고리즘
 
    - 각 종류마다 착용할 수 있는 의상의 개수는 1개이다. 따라서, 옷을 입을 수 있는 총 가짓수는 (각 종류의 개수+1)을 하여 곱한 후, 아무것도 입지 않은 경우인 1을 빼주면 된다.
-   - 결국 각 종류마다 속하 의상의 개수를 알아야 하는데, 2중 배열로 풀 수 있지만, hash map을 사용하면 쉽다. `unordered_map`을 선언하고, 루프문을 통해서 키 값에 해당하는 종류(string)에 대해 1씩 더하도록 하면 된다.
-   - !확인할 것! hash의 함수 중에 아래에서 진행한 것볻 깔끔하고 간단한 방식이 있을 것.
+   - 결국 각 종류마다 속하 의상의 개수를 알아야 하는데, 2중 배열로 풀 수 있지만, hash map을 사용하면 쉽다.
+   - `unordered_map`을 선언하고, 루프문을 통해서 키 값에 해당하는 종류(string)에 대해 1씩 더하도록 하면 된다.
+   - `vector<string> t`로 hash의 key 값을 받아오고, 이후 `for`문으 통해 hash의 key로 각 해시의 값에 접근할 수 있다.
+   - 하지만, 
+   ```{.cpp}
+       for(auto i = hash_clothes.begin() ; i != hash_clothes.end() ; i++)
+        answer *= (i->second + 1);
+   ```
+   처럼도 사용할 수 있다. 이때, `i`는 해시를 가리키는 포인터.
    
 
 
 CODE
 ----
+without using the `vector<string> t`. Can solve the problem with hash function `.begin()` and `.end()`.
+```(.cpp)
+#include <string>
+#include <vector>
+#include <unordered_map>
+
+using namespace std;
+
+int solution(vector<vector<string>> clothes) {
+    int answer = 1;
+    unordered_map<string,int> hash_clothes;
+    int num = clothes.size();
+    vector<string> t;
+    for(int i=0 ; i<num ; i++)
+        hash_clothes[clothes[i][1]]++;
+
+    for(auto i = hash_clothes.begin() ; i != hash_clothes.end() ; i++)
+        answer *= (i->second + 1);
+    
+    answer--;
+    return answer;
+}
+```
+   
+use `vector<string> t` to check the hash key for hash num.
 ```{.cpp}
 #include <string>
 #include <vector>
